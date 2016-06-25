@@ -52,11 +52,11 @@ class InteractiveRecord
   end
 
   def self.find_by(hash)
-    if hash.values.first.class == Integer
-      sql = "SELECT * from #{table_name} WHERE #{hash.keys.first} = #{hash.values.first}"
-    else
+    # if hash.values.first.class == Integer
+    #   sql = "SELECT * from #{table_name} WHERE #{hash.keys.first} = #{hash.values.first}"
+    # else
       sql = "SELECT * from #{table_name} WHERE #{hash.keys.first} = '#{hash.values.first}'"
-    end
+    # end
     # binding.pry
     DB[:conn].execute(sql)
   end
